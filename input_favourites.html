@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Favorite Recipe</title>
+</head>
+<body>
+    <h1>Add Favorite Recipe</h1>
+    <form action="/add_favorite" method="POST">
+        <label for="userID">Select User:</label>
+        <select id="userID" name="userID">
+            {% for user in users %}
+                <option value="{{ user.userID }}">{{ user.username }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="recipeID">Select Recipe:</label>
+        <select id="recipeID" name="recipeID">
+            {% for recipe in recipes %}
+                <option value="{{ recipe.recipeID }}">{{ recipe.recipeName }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
